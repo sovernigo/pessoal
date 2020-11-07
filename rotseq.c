@@ -122,11 +122,45 @@ int main (){
         }
       }
 
+      if(achou == true){
+        x = dest_x;
+        y = dest_y;
+
+        while(pos_x != ini_x || pos_y != ini_y){
+          for(int t = 0;t < 4; t++){
+            eixo_x = t / 2;
+            eixo_y = t % 2;
+            if(eixo_x == 0  && 0 >= x < tam_x){
+              if(eixo_y == 0 && Grid[x - 1][y] == Grid[x][y] - 1){
+                x -= x;
+              }
+              if(eixo_y == 1 && Grid[x + 1][y] == Grid[x][y] - 1){
+                x ++;
+              }
+            }
+            if(eixo_x == 1 && 0 >= y < tam_y){
+              if(eixo_y == 0 && Grid[x][y - 1] == Grid[x][y]){
+                y --;
+              }
+              if(eixo_y == 1 && Grid[x][y - 1] == Grid[x][y] - 1){
+                y++;
+              }
+            }
+          }
+        }
+      }
+
+
     for (int j = 0; j < tam_x; j++) {
       for (int k = 0; k < tam_y; k++) {
         printf("%d", Grid[j][k]);
       }
     }
+}
+
+void insere_fila(){
+
+
 }
 
 /*void init_Fila(Fila *f){
